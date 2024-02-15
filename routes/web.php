@@ -2,7 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+use App\Http\Controllers\BookController;
 
-    return view('pages.index');
-});
+Route::get('/', [BookController::class, 'index']) ->name('users.index');
+
+Route::get('/users/create', [BookController::class, 'create']) ->name('users.create');
+
+Route::post('/users', [BookController::class, 'store']) ->name('users.store');
+
+Route::get('/users/{id}', [BookController::class, 'show']) ->name('users.show');
