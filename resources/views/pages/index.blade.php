@@ -6,7 +6,7 @@
     <h1>Book: {{ count($books) }}</h1>
 
     <a href="
-    {{route('users.create')}}
+    {{ route('users.create') }}
     ">CREATE</a>
     <br>
 
@@ -20,6 +20,11 @@
                     {{ $book->author }}
                     {{ $book->yearPublish }}
                 </a>
+                <form class="d-inline-block" action="{{route('users.destroy', $book->id)}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <input type="submit" value="x">
+                </form>
             </li>
         @endforeach
     </ul>

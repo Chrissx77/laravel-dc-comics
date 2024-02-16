@@ -11,3 +11,5 @@ Route::get('/users/create', [BookController::class, 'create']) ->name('users.cre
 Route::post('/users', [BookController::class, 'store']) ->name('users.store');
 
 Route::get('/users/{id}', [BookController::class, 'show']) ->name('users.show');
+
+Route::delete('/users/{id}', [BookController::class, 'destroy']) ->name('users.destroy');
