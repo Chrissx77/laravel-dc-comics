@@ -86,7 +86,19 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $book = Book::find($id);
+
+        $data = $request->all();
+
+        $book -> title = $data['title'];
+        $book -> author = $data['author'];
+        $book -> yearPublish = $data['yearPublish'];
+
+        $book -> save();
+
+        return redirect() -> route('users.show', $book->id);
+
+
     }
 
     /**
