@@ -20,7 +20,12 @@
                     {{ $book->author }}
                     {{ $book->yearPublish }}
                 </a>
-                <form class="d-inline-block" action="{{route('users.destroy', $book->id)}}" method="POST">
+
+                <a class="mx-3" href="{{route('users.edit', $book -> id)}}">
+                    EDIT
+                </a>
+
+                <form class="d-inline-block" action="{{ route('users.destroy', $book->id) }}" method="POST">
                     @csrf
                     @method('DELETE')
                     <input type="submit" value="x">

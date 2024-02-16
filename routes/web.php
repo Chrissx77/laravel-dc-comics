@@ -13,3 +13,7 @@ Route::post('/users', [BookController::class, 'store']) ->name('users.store');
 Route::get('/users/{id}', [BookController::class, 'show']) ->name('users.show');
 
 Route::delete('/users/{id}', [BookController::class, 'destroy']) ->name('users.destroy');
+
+Route::get('/users/{id}/edit', [BookController::class, 'edit']) ->name('users.edit');
+
+Route::post('/users/{id}', [BookController::class, 'update']) ->name('users.update');

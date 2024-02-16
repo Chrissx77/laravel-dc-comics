@@ -15,7 +15,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book :: all();
+        $books = Book::all();
 
         return view('pages.index', compact('books'));
     }
@@ -39,16 +39,16 @@ class BookController extends Controller
     public function store(Request $request)
     {
 
-        $data = $request -> all();
+        $data = $request->all();
         $newBook = new Book();
 
-        $newBook -> title = $data['title'];
-        $newBook -> yearPublish = $data['yearPublish'];
-        $newBook -> author = $data['author'];
+        $newBook->title = $data['title'];
+        $newBook->yearPublish = $data['yearPublish'];
+        $newBook->author = $data['author'];
 
-        $newBook -> save();
+        $newBook->save();
 
-        return redirect() -> route('users.show', $newBook -> id);
+        return redirect()->route('users.show', $newBook->id);
     }
 
     /**
@@ -59,10 +59,9 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        $book = Book :: find($id);
+        $book = Book::find($id);
 
         return view('pages.show', compact('book'));
-
     }
 
     /**
@@ -73,7 +72,9 @@ class BookController extends Controller
      */
     public function edit($id)
     {
-        //
+        $book = Book::find($id);
+
+        return view('pages.edit', compact('book'));
     }
 
     /**
@@ -97,8 +98,8 @@ class BookController extends Controller
     public function destroy($id)
     {
         $book = Book::find($id);
-        $book -> delete();
+        $book->delete();
 
-        return redirect() ->route('users.index');
+        return redirect()->route('users.index');
     }
 }
