@@ -16,4 +16,4 @@ Route::delete('/users/{id}', [BookController::class, 'destroy']) ->name('users.d
 
 Route::get('/users/{id}/edit', [BookController::class, 'edit']) ->name('users.edit');
 
-Route::post('/users/{id}', [BookController::class, 'update']) ->name('users.update');
+Route::put('/users/{id}', [BookController::class, 'update']) ->name('users.update');

@@ -8,7 +8,7 @@
         EDIT BOOK
     </h1>
 
-    <form action="#" method="POST">
+    <form action="{{route('users.update', $book -> id)}}" method="POST">
 
         @csrf
         @method('PUT')
@@ -26,7 +26,7 @@
         <input type="text" name="author" id="author" value="{{$book->author}}">
         <br>
 
-        <input type="submit" value="CREATE">
+        <input type="submit" value="UPDATE">
 
     </form>
 @endsection
