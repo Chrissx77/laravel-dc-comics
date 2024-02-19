@@ -94,7 +94,8 @@ class BookController extends Controller
             'title'=> 'required|string|min:3|max:255',
             'author'=> 'required|string|min:3|max:255',
             'yearPublish'=> 'required|numeric',
-
+        ],[
+            'title.min' => "Il nome non pò essere minore di 3 caratteri"
         ]);
 
 
